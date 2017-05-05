@@ -25,7 +25,7 @@
 
             var key = setInterval(move_left, 3);
             function move_left(){
-                if(logo.offsetLeft <= 50) {
+                if(logo.offsetLeft <= 100) {
                     clearInterval(key);
                 }
                 else {
@@ -64,10 +64,9 @@
         }
 
         div.textContainer {
-            top: 20%;
-            margin: 10%;
+            top: 40%;
+            right: 20%;
             position: fixed;
-            right: 0;
         }
     </style>
 </head>
