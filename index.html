@@ -5,16 +5,17 @@
     <title>NexTrip</title>
     <script>
         window.onload = function() {
-            fadein();
+            animation();
+            fadeOut();
         };
 
-        function fadein() {
+        function animation() {
             var logo = document.getElementById("logo");
             var opacity = 0.0;
-            var pos = logo.offsetLeft;
+            var pos = logo.style.left;
             var id = setInterval(anim_fade_in, 20);
             function anim_fade_in() {
-                if(opacity == 1.0) {
+                if(opacity >= 1.0) {
                     clearInterval(id);
                 }
                 else {
@@ -35,6 +36,35 @@
             }
         }
 
+        var contents = ["YOUR", "TOUR", "STARTS", "HERE"];
+        var index = 0;
+
+        function fadeOut() {
+            var header = document.getElementById("text");
+            var opacity = 0.0;
+            var key = setInterval(show, 20);
+            header.innerHTML = contents[index++];
+            function show() {
+                if(opacity >= 1.0) {
+                    clearInterval(key);
+                    if(index != contents.length)
+                        key = setInterval(hide, 20);
+                    function hide() {
+                        if(opacity <= 0.0){
+                            header.innerHTML = contents[index++];
+                            clearInterval(key);
+                            key = setInterval(show, 20);
+                        } else {
+                            opacity -= 0.01;
+                            header.style.opacity = opacity;
+                        }
+                    }
+                } else {
+                    opacity += 0.01;
+                    header.style.opacity = opacity;
+                }
+            }
+        }
     </script>
     <style>
         @font-face {
@@ -51,6 +81,7 @@
             text-align: center;
         }
         h1.text {
+            opacity: 0;
             font-family: HelveticaNeueLTPro-Th,monospace;
             text-align: center;
             color: #fff;
@@ -74,7 +105,7 @@
 <body>
 <img id="logo" src="src/logo.gif" alt="NexTrip"/>
 <div class="textContainer">
-    <h1 class="text">YOUR</h1>
+    <h1 id="text" class="text"></h1>
 </div>
 </body>
 </html>
