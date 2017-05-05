@@ -20,7 +20,16 @@
                     logo.style.opacity = opacity;
                 }
             }
+
+            var key = setInterval(anim_left, 40);
+            function anim_left() {
+                if(logo.offsetLeft == 100)
+                    clearInterval(key);
+                else
+                    logo.offsetLeft = logo.offsetLeft - 1;
+            }
         }
+
     </script>
     <style>
         @font-face {
@@ -52,6 +61,6 @@
 </head>
 <body>
 <img id="logo" src="src/logo.gif" alt="NexTrip"/>
-<h1>YOUR TOUR STARTS HERE</h1>
+<h1 id="text">YOUR TOUR STARTS HERE</h1>
 </body>
 </html>
