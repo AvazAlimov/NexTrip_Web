@@ -11,22 +11,27 @@
         function fadein() {
             var logo = document.getElementById("logo");
             var opacity = 0.0;
+            var pos = logo.offsetLeft;
             var id = setInterval(anim_fade_in, 20);
             function anim_fade_in() {
-                if(opacity == 1.0)
+                if(opacity == 1.0) {
                     clearInterval(id);
+                }
                 else {
                     opacity += 0.01;
                     logo.style.opacity = opacity;
                 }
             }
 
-            var key = setInterval(anim_left, 40);
-            function anim_left() {
-                if(logo.offsetLeft == 100)
+            var key = setInterval(move_left, 3);
+            function move_left(){
+                if(logo.offsetLeft <= 50) {
                     clearInterval(key);
-                else
-                    logo.offsetLeft = logo.offsetLeft - 1;
+                }
+                else {
+                    pos -= 2;
+                    logo.style.left = pos + "px";
+                }
             }
         }
 
@@ -45,11 +50,11 @@
             background-color: #222;
             text-align: center;
         }
-        h1 {
+        h1.text {
             font-family: HelveticaNeueLTPro-Th,monospace;
             text-align: center;
             color: #fff;
-            font-size: 36px;
+            font-size: 60px;
         }
         #logo{
             opacity: 0.0;
@@ -57,10 +62,19 @@
             left: -30px;
             width: 40%;
         }
+
+        div.textContainer {
+            top: 20%;
+            margin: 10%;
+            position: fixed;
+            right: 0;
+        }
     </style>
 </head>
 <body>
 <img id="logo" src="src/logo.gif" alt="NexTrip"/>
-<h1 id="text">YOUR TOUR STARTS HERE</h1>
+<div class="textContainer">
+    <h1 class="text">YOUR</h1>
+</div>
 </body>
 </html>
