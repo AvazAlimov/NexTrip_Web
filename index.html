@@ -3,22 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>NexTrip</title>
+    <script>
+        window.onload = function() {
+            fadein();
+        };
+
+        function fadein() {
+            var logo = document.getElementById("logo");
+            var opacity = 0.0;
+            var id = setInterval(anim_fade_in, 20);
+            function anim_fade_in() {
+                if(opacity == 1.0)
+                    clearInterval(id);
+                else {
+                    opacity += 0.01;
+                    logo.style.opacity = opacity;
+                }
+            }
+        }
+    </script>
     <style>
         @font-face {
             font-family: HelveticaNeueTPro-Roman;
             src: url("fonts/HelveticaNeueLTPro-Roman.otf");
         }
+        @font-face {
+            font-family: HelveticaNeueLTPro-Th;
+            src: url("fonts/HelveticaNeueLTPro-Th.otf");
+        }
+
         body {
             background-color: #222;
             text-align: center;
         }
         h1 {
-            font-family: HelveticaNeueTPro-Roman,monospace;
+            font-family: HelveticaNeueLTPro-Th,monospace;
             text-align: center;
             color: #fff;
             font-size: 36px;
         }
-        img{
+        #logo{
+            opacity: 0.0;
             position: relative;
             left: -30px;
             width: 40%;
@@ -26,7 +51,7 @@
     </style>
 </head>
 <body>
-<img src="src/logo.gif" alt="NexTrip"/>
+<img id="logo" src="src/logo.gif" alt="NexTrip"/>
 <h1>YOUR TOUR STARTS HERE</h1>
 </body>
 </html>
