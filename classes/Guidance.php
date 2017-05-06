@@ -13,7 +13,7 @@ class Guidance
     private $amenties = array(); //ArrayList<String>
     private $ratings = array(); //ArrayList<Integer>
 
-    public function Guidance()
+    public function __construct()
     {
         $this->rating = 0;
         $this->photos = array();
