@@ -4,7 +4,7 @@ class Comment
 {
     private $comment;
     private $writtenDate;
-    private $guest;
+    private $username;
 
     public function __construct($string)
     {
@@ -12,7 +12,7 @@ class Comment
         $this->setComment(substr($string, 0, $index));
         $index2 = strpos(substr($string, $index + 1, count($string)), '□');
         $this->setWrittenDate(substr($string, $index + 1, $index2));
-        $guest = "guess";
+        $this->username = "guess";
     }
 
     public function setComment($comment)
@@ -20,9 +20,9 @@ class Comment
         $this->comment = $comment;
     }
 
-    public function setGuest($guest)
+    public function setUsername($username)
     {
-        $this->guest = $guest;
+        $this->username = $username;
     }
 
     public function setWrittenDate($writtenDate)
@@ -35,9 +35,9 @@ class Comment
         return $this->writtenDate;
     }
 
-    public function getGuest()
+    public function getUsername()
     {
-        return $this->guest;
+        return $this->username;
     }
 
     public function getComment()
@@ -47,6 +47,6 @@ class Comment
 
     public function toString()
     {
-        return $this->comment . "□" . $this->writtenDate . "□" . $this->guest;
+        return $this->comment . "□" . $this->writtenDate . "□" . $this->username;
     }
 }
