@@ -53,12 +53,12 @@ class Restaurant extends Guidance
 
     public function menuToString()
     {
-        return $this->menu::toString();
+        return $this->menu->toString();
     }
 
     public function setMenuByString($string)
     {
-        $this->menu::setMenu($string);
+        $this->menu->setMenu($string);
     }
 
     public function typeToString()

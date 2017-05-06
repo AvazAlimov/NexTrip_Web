@@ -2,60 +2,66 @@
 
 class Menu
 {
+    private $foods = array();
+    private $price = array();
+
     public function __construct()
     {
+        $this->foods = array();
+        $this->price = array();
     }
 
-private ArrayList<String> foods;
-private ArrayList<String> price;
 
-public Menu() {
-foods = new ArrayList<>();
-price = new ArrayList<>();
-}
-
-public void addItem(String name, String price) {
-    foods.add(name);
-    this.price.add(price);
-}
-
-    public void setPrice(ArrayList<String> price) {
-    this.price = price;
-}
-
-    public void setFoods(ArrayList<String> foods) {
-    this.foods = foods;
-}
-
-    public ArrayList<String> getFoods() {
-        return foods;
+    public function addItem($name, $price)
+    {
+        array_push($this->foods, $name);
+        array_push($this->price, $price);
     }
 
-    public ArrayList<String> getPrice() {
-        return price;
+    public function setPrice($price)
+    {
+        $this->price = $price;
     }
 
-    public String toString() {
-String string = "";
-        for (int i = 0; i < foods.size(); i++)
-            string += foods.get(i) + "□" + price.get(i) + "▣";
-        return string.substring(0, string.length() - 1);
+    public function setFoods($foods)
+    {
+        $this->foods = $foods;
     }
 
-    public void setMenu(String string) {
-    int index = 0;
-        for (int i = 0; i < string.length(); i++) {
-        if (string.charAt(i) == '▣' || i == string.length() - 1) {
-            int last = i == string.length() - 1 ? i + 1 : i;
-                setItem(string.substring(index, last));
-                index = i + 1;
+    public function getFoods()
+    {
+        return $this->foods;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function toString()
+    {
+        $string = "";
+        for ($i = 0; $i < count($this->foods); $i++)
+            $string .= $this->foods[$i] . "□" . $this->price[$i] . "▣";
+        return substr($string, 0, count($string) - 1);
+    }
+
+    public function setMenu($string)
+    {
+        $index = 0;
+        for ($i = 0; $i < count($string); $i++) {
+            if ($string[$i] == '▣' || $i == count($string) - 1) {
+                $last = $i == count($string) - 1 ? $i + 1 : $i;
+                $this->setItem(substr($string, $index, $last));
+                $index = $i + 1;
             }
-    }
+        }
     }
 
-    private void setItem(String string) {
-    int index = string.indexOf('□');
-        foods.add(string.substring(0, index));
-        price.add(string.substring(index + 1, string.length()));
+    private function setItem($string)
+    {
+        $index = strpos($string, '□');
+        array_push($this->foods, substr($string, 0, $index));
+        array_push($this->price, substr($string, $index + 1, count($string)));
     }
 }
