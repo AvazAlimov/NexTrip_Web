@@ -231,7 +231,7 @@ class Guidance
         return $this->amenties;
     }
 
-    public function setAmenities(Amenity $amenties)
+    public function setAmenities($amenties)
     {
         $this->amenties = $amenties;
     }
