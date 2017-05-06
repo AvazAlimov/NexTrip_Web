@@ -2,7 +2,6 @@
 
 class Contact
 {
-
     public $Type = array("Facebook", "Site", "PhoneNumber", "Mail", "Telegram", "Other");
     private $type;
     private $source;
