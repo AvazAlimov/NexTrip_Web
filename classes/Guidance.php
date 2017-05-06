@@ -12,9 +12,8 @@ class Guidance
     private $comments; //ArrayList<Comment>
     private $amenties = array(); //ArrayList<String>
     private $ratings = array(); //ArrayList<Integer>
-    private $images = array(); //ArrayList<Image>
 
-    public function __construct()
+    public function Guidance()
     {
         $this->rating = 0;
         $this->photos = array();
@@ -22,7 +21,6 @@ class Guidance
         $this->comments = array();
         $this->amenties = array();
         $this->ratings = array();
-        $this->images = array();
     }
 
     public function toString()
@@ -218,7 +216,7 @@ class Guidance
         return $this->contacts;
     }
 
-    public function setContacts($contacts)
+    public function setContacts(Contact $contacts)
     {
         $this->contacts = $contacts;
     }
@@ -233,7 +231,7 @@ class Guidance
         return $this->amenties;
     }
 
-    public function setAmenities($amenties)
+    public function setAmenities(Amenity $amenties)
     {
         $this->amenties = $amenties;
     }
