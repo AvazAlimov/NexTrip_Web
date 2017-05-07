@@ -15,7 +15,6 @@ $pass = "inhamoodle";
 $database = "nextripdb";
 $conn = null;
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -54,13 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password">Password:</label>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
         </div>
         <div class="form-group">
-            <div class="input-group">
-                <button type="submit">Log In</button>
-            </div>
+                <button type="submit"><i class="glyphicon glyphicon-log-in">&emsp14;</i>&emsp14;Log In</button>
         </div>
     </form>
 </div>
