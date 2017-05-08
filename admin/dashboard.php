@@ -300,7 +300,7 @@ $conn = null;
 </nav>
 <div id="hotels" class="container-fluid text-center">
     <h2>Manage Hotels</h2><br>
-    <div class="row text-center slideanim">
+    <div class="row text-center">
         <a href="HotelPage.php">
             <div class="col-sm-4">
                 <div class="thumbnail">
@@ -331,7 +331,7 @@ $conn = null;
 </div>
 <div id="restaurants" class="container-fluid text-center bg-grey">
     <h2>Manage Restaurants</h2><br>
-    <div class="row text-center slideanim">
+    <div class="row text-center">
         <div class="col-sm-4">
             <a href="RestaurantPage.php">
                 <div class="thumbnail">
@@ -362,7 +362,7 @@ $conn = null;
 </div>
 <div id="entertainment" class="container-fluid text-center">
     <h2>Manage Entertainment</h2><br>
-    <div class="row text-center slideanim">
+    <div class="row text-center">
         <div class="col-sm-4">
             <div class="thumbnail">
                 <div style="height: 200px; background-color: #4CAF50;">
@@ -391,7 +391,7 @@ $conn = null;
 </div>
 <div id="thingstodo" class="container-fluid text-center bg-grey">
     <h2>Manage Things To Do</h2><br>
-    <div class="row text-center slideanim">
+    <div class="row text-center">
         <div class="col-sm-4">
             <div class="thumbnail">
                 <div style="height: 200px; background-color: #4CAF50;">
