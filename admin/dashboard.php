@@ -156,12 +156,14 @@ $conn = null;
     <h2>Manage Restaurants</h2><br>
     <div class="row text-center slideanim">
         <div class="col-sm-4">
-            <div class="thumbnail">
-                <div style="height: 200px; background-color: #4CAF50;">
-                    <span class="glyphicon glyphicon-plus logo-small"></span>
+            <a href="RestaurantPage.php">
+                <div class="thumbnail">
+                    <div style="height: 200px; background-color: #4CAF50;">
+                        <span class="glyphicon glyphicon-plus logo-small"></span>
+                    </div>
+                    <h2><strong>ADD</strong></h2>
                 </div>
-                <h2><strong>ADD</strong></h2>
-            </div>
+            </a>
         </div>
         <div class="col-sm-4">
             <div class="thumbnail">
