@@ -1,5 +1,5 @@
 <?php
-
+require "Guidance.php";
 class Restaurant extends Guidance
 {
     public $Type = array("Cafe", "Fastfood", "Cuisine", "SitDown");
