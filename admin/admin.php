@@ -15,6 +15,25 @@ $pass = "inhamoodle";
 $database = "nextripdb";
 $conn = null;
 
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+        $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -26,9 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement->execute();
         $result = $statement->fetch();
         echo $result;
-        if(!empty($result))
+        if (!empty($result)) {
+            $ip = get_client_ip();
+            $sql = "UPDATE users SET last_access = NOW(), ip = '$ip' WHERE username = '$username';";
+            $conn->exec($sql);
             header('Location: dashboard.php');
-        else {
+        } else {
             //TODO: show an error message and ask for retry
             echo "Retry";
         }
@@ -57,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="form-group">
-                <button type="submit"><i class="glyphicon glyphicon-log-in">&emsp14;</i>&emsp14;Log In</button>
+            <button type="submit"><i class="glyphicon glyphicon-log-in">&emsp14;</i>&emsp14;Log In</button>
         </div>
     </form>
 </div>

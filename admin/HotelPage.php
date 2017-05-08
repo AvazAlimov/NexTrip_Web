@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <style>
         body {
             background-image: url("../src/Images/17.jpg");
@@ -30,8 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $conn = new PDO("mysql:host=$serverName;dbname=$database", $hostName, $pass);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        echo("Hi");
 
         $name = $_POST['name'];
         $info = $_POST['information'];
