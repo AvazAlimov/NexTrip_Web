@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../JS/dashboard.js"></script>
-    <link rel="stylesheet" href="../CSS/dashboard.css"/>
+    <link type="text/css" rel="stylesheet" href="../CSS/dashboard.css"/>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <?php
@@ -247,5 +246,6 @@ $conn = null;
     </a>
     <p>This web site made by Avaz Alimov and Nasiba Lutfullaeva</p>
 </footer>
+<script src="../JS/dashboard.js"></script>
 </body>
 </html>
