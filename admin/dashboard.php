@@ -57,6 +57,10 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, .4);
         }
 
+        .thumbnail:active {
+            box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+        }
+
         .thumbnail img {
             width: 100%;
             height: 100%;
@@ -154,6 +158,24 @@
     </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<?php
+$servername = "localhost";
+$name = "root";
+$pass = "inhamoodle";
+$database = "nextripdb";
+$conn = null;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+?>
+
 <div class="jumbotron text-center bg-grey">
     <div class="container-fluid text-center">
         <div class="col-sm-3">
@@ -162,7 +184,17 @@
                     <span class="glyphicon glyphicon-home logo-small"></span>
                 </div>
                 <h2><strong>HOTELS</strong></h2>
-                <h3>50</h3>
+                <h3>
+                    <?php
+                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql = "SELECT * FROM hotel;";
+                    $statement = $conn->prepare($sql);
+                    $statement->execute();
+                    $result = $statement->rowCount();
+                    print $result;
+                    ?>
+                </h3>
             </div>
         </div>
         <div class="col-sm-3">
@@ -171,7 +203,17 @@
                     <span class="glyphicon glyphicon-glass logo-small"></span>
                 </div>
                 <h2><strong>RESTAURANTS</strong></h2>
-                <h3>50</h3>
+                <h3>
+                    <?php
+                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql = "SELECT * FROM restaurant;";
+                    $statement = $conn->prepare($sql);
+                    $statement->execute();
+                    $result = $statement->rowCount();
+                    print $result;
+                    ?>
+                </h3>
             </div>
         </div>
         <div class="col-sm-3">
@@ -180,7 +222,17 @@
                     <span class="glyphicon glyphicon-film logo-small"></span>
                 </div>
                 <h2><strong>ENTERTAINMENTS</strong></h2>
-                <h3>50</h3>
+                <h3>
+                    <?php
+                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql = "SELECT * FROM entertaining;";
+                    $statement = $conn->prepare($sql);
+                    $statement->execute();
+                    $result = $statement->rowCount();
+                    print $result;
+                    ?>
+                </h3>
             </div>
         </div>
         <div class="col-sm-3">
@@ -189,7 +241,17 @@
                     <span class="glyphicon glyphicon-tags logo-small"></span>
                 </div>
                 <h2><strong>THINGS TO DO</strong></h2>
-                <h3>50</h3>
+                <h3>
+                    <?php
+                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql = "SELECT * FROM thingstodo;";
+                    $statement = $conn->prepare($sql);
+                    $statement->execute();
+                    $result = $statement->rowCount();
+                    print $result;
+                    ?>
+                </h3>
             </div>
         </div>
     </div>
@@ -218,14 +280,16 @@
 <div id="hotels" class="container-fluid text-center">
     <h2>Manage Hotels</h2><br>
     <div class="row text-center slideanim">
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <div style="height: 200px; background-color: #4CAF50;">
-                    <span class="glyphicon glyphicon-plus logo-small"></span>
+        <a href="HotelPage.php">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div style="height: 200px; background-color: #4CAF50;">
+                        <span class="glyphicon glyphicon-plus logo-small"></span>
+                    </div>
+                    <h2><strong>ADD</strong></h2>
                 </div>
-                <h2><strong>ADD</strong></h2>
             </div>
-        </div>
+        </a>
         <div class="col-sm-4">
             <div class="thumbnail">
                 <div style="height: 200px; background-color: #00BCD4;">
