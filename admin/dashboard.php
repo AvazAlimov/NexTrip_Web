@@ -310,7 +310,7 @@ $conn = null;
 <div id="hotels" class="container-fluid text-center">
     <h2>Manage Hotels</h2><br>
     <div class="row text-center slideanim">
-        <a href="HotelPage.php">
+        <a href="HotelPage.html">
             <div class="col-sm-4">
                 <div class="thumbnail">
                     <div style="height: 200px; background-color: #4CAF50;">
