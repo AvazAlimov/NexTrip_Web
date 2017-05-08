@@ -225,7 +225,7 @@
             </div>
             <div class="row">
                 <button type="submit" name="submit" class="btn btn-primary btn-success">Submit</button>
-                <button type="button" class="btn btn-primary btn-danger">Cancel</button>
+                <a href="dashboard.php"><button type="button" class="btn btn-primary btn-danger">Cancel</button></a>
             </div>
         </div>
     </div>
