@@ -114,10 +114,6 @@
             color: #d58512;
         }
 
-        .slideanim {
-            visibility: hidden;
-        }
-
         @keyframes slide {
             0% {
                 opacity: 0;
