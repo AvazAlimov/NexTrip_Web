@@ -155,6 +155,10 @@
             }
         }
 
+        a {
+            text-decoration: none;
+        }
+
     </style>
     <script>
         $(document).ready(function () {
@@ -303,7 +307,6 @@ $conn = null;
         </div>
     </div>
 </nav>
-
 <div id="hotels" class="container-fluid text-center">
     <h2>Manage Hotels</h2><br>
     <div class="row text-center slideanim">
@@ -423,7 +426,6 @@ $conn = null;
     </div>
 </div>
 <br>
-
 <footer class="container-fluid text-center">
     <a href="#myPage" title="To Top">
         <span class="glyphicon glyphicon-chevron-up"></span>
