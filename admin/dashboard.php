@@ -158,7 +158,6 @@
     </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
 <?php
 $servername = "localhost";
 $name = "root";
@@ -166,7 +165,6 @@ $pass = "inhamoodle";
 $database = "nextripdb";
 $conn = null;
 ?>
-
 <div class="jumbotron text-center bg-grey">
     <div class="container-fluid text-center">
         <div class="col-sm-3">
