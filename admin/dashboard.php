@@ -165,15 +165,6 @@ $name = "root";
 $pass = "inhamoodle";
 $database = "nextripdb";
 $conn = null;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-}
 ?>
 
 <div class="jumbotron text-center bg-grey">
