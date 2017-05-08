@@ -9,7 +9,148 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="../CSS/dashboard.css"/>
+    <style>
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        h1 {
+            text-shadow: 0 0 8px #212121;
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            top: 25%;
+            color: #fff;
+            font-size: 100px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+        }
+
+        .thumbnail:active {
+            box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+            background-size: cover;
+
+        }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #d58512;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+            box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #d58512 !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #d58512;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
     <script>
         $(document).ready(function () {
             // Add smooth scrolling to all links in navbar + footer link
