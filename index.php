@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>NexTrip</title>
     <script src="JS/index.js"></script>
-    <link rel="stylesheet" href="CSS/main.css"/>
+    <link rel="stylesheet" href="CSS/index.css"/>
 </head>
 <body>
 <img id="logo" src="src/logo.gif" alt="NexTrip"/>
