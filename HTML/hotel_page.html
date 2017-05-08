@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hotel Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: lightgray;
+            padding: 25px;
+        }
+
+        .carousel-inner img {
+            width: 100%; /* Set width to 100% */
+            min-height: 200px;
+        }
+
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+
+        body {
+            background-color: white;
+
+        }
+
+        .navbar {
+            margin-bottom: 10px;
+            background-color: #5bc0de;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #5bc0de !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        .logo-small {
+            color: gold;
+            font-size: 35px;
+        }
+
+        .logo-small1 {
+            color: gold;
+            font-size: 30px;
+        }
+        .logo-small2 {
+            color: black;
+            font-size: 27px;
+        }
+
+    </style>
+</head>
+<body id="hotel_page" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#hotel_page">NexTrip</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#rating">Rating</a></li>
+                <li><a href="#contacts">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container" style="margin-top: 80px;">
+    <div class="row">
+        <div class="col-sm-8">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="../src/Images/1.jpg" alt="Image">
+                        <div class="carousel-caption">
+                            <h3>Hotel Uzbekistan</h3>
+                            <p>Amir Temur str., 67</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="../src/Images/3.jpg" alt="Image">
+                        <div class="carousel-caption">
+                            <h3>Grand Palace</h3>
+                            <p>Yunus Abad dstr., 17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-7">
+                    <p style="text-align: center; font-size: 20px;">Rating</p>
+                    <div class="col">
+                        <span class="glyphicon glyphicon-star logo-small"></span>
+                        <span class="glyphicon glyphicon-star logo-small"></span>
+                        <span class="glyphicon glyphicon-star logo-small"></span>
+                        <span class="glyphicon glyphicon-star-empty logo-small"></span>
+                        <span class="glyphicon glyphicon-star-empty logo-small"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="well">
+                <p style="text-align: center; font-size: 20px;">Price Interval</p>
+                <div class="col">
+                    <span class="glyphicon glyphicon-usd logo-small1"> 49.0 -</span>
+                    <span class="glyphicon glyphicon-usd logo-small1"> 500.0</span>
+
+                </div>
+            </div>
+            <div class="well">
+                <p style="text-align: center; font-size: 20px;">Information</p>
+                <p style="text-align: center;">One of the best hotel in Tashkent.One of
+                    the best hotel in Tashkent.One of the best hotel in Tashkent.One of
+                    the best hotel in Tashkent.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<div id="rating" class="container">
+    <h3>Overall Travellers Rating</h3>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">Fantastic</div>
+        <div class="col-sm-4">7</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">Excellent</div>
+        <div class="col-sm-4">3</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">Good</div>
+        <div class="col-sm-4">1</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">Normal</div>
+        <div class="col-sm-4">2</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">Bad</div>
+        <div class="col-sm-4">0</div>
+    </div>
+
+    <hr>
+</div>
+
+<div class="container">
+    <h3>Hotel Amenities</h3>
+    <br>
+    <div class="row">
+        <div class="col-sm-4"><span class="glyphicon glyphicon-road logo-small2">  Free Parking</span></div>
+        <div class="col-sm-4"><span class="glyphicon glyphicon-signal logo-small2">  Free Wifi</span></div>
+        <div class="col-sm-4"><span class="glyphicon glyphicon-inbox logo-small2">  Free Children Yard</span></div>
+    </div>
+    <hr>
+</div>
+<br>
+
+<div id="contacts" class="container">
+    <h3>Contacts</h3>
+    <br>
+    <div class="row">
+        <div class="col-sm-1"><span class="glyphicon glyphicon-send logo-small2"></span></div>
+        <div class="col-sm-1"><span class="glyphicon glyphicon-phone-alt logo-small2"></span></div>
+        <div class="col-sm-1"><span class="glyphicon glyphicon-envelope logo-small2"></span></div>
+    </div>
+    <hr>
+</div>
+<br>
+<div class="container">
+    <div class="col-sm-4">
+
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" id="comment"></textarea>
+    </div>
+</div>
+<hr>
+
+<footer class="container-fluid text-center">
+    <p>Footer Text</p>
+</footer>
+
+</body>
+</html>
