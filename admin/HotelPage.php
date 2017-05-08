@@ -90,6 +90,7 @@
 <body>
 <?php
 require_once('../classes/Hotel.php');
+require_once('../classes/Contact.php');
 $servername = "localhost";
 $name = "root";
 $pass = "inhamoodle";
@@ -105,9 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location = $_POST['location'];
         $startPrice = $_POST['startPrice'];
         $endPrice = $_POST['endPrice'];
-        $freeWifi = $_POST['freeWifi'];
-        $freeParking = $_POST['freeParking'];
-        $freeYard = $_POST['freeYard'];
+        $freeWifi = isset($_POST['freeWifi']) && $_POST['freeWifi']  ? "1" : "0";
+        $freeParking = isset($_POST['freeParking']) && $_POST['freeParking']  ? "1" : "0";
+        $freeYard = isset($_POST['freeYard']) && $_POST['freeYard']  ? "1" : "0";
         $facebook = $_POST['facebook'];
         $site = $_POST['site'];
         $mail = $_POST['mail'];
@@ -118,11 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $images = array();
 
         if (isset($freeWifi))
-            array_push($amenities, $freeWifi);
+            array_push($amenities, "Free WiFi");
         if (isset($freeParking))
-            array_push($amenities, $freeWifi);
+            array_push($amenities, "Free Parking");
         if (isset($freeYard))
-            array_push($amenities, $freeYard);
+            array_push($amenities, "Free Children Yard");
 
         if (!empty($facebook))
             array_push($contacts, new Contact($facebook,"Facebook"));
@@ -135,6 +136,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!empty($phone))
             array_push($contacts, new Contact($phone, "PhoneNumber"));
 
+
+
         $hotel = new Hotel();
         $hotel->setName($name);
         $hotel->setInfo($info);
@@ -145,8 +148,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hotel->setAmenities($amenities);
         $hotel->setContacts($contacts);
 
+        echo $hotel->toString();
 
-        $sql = "INSERT INTO hotel('Name', 'Info', 'Location', 'Images', 'Contacts', 'Amenities', 'StartPrice', 'EndPrice') VALUES ('" . $hotel->getName() . "', '" . $hotel->getInfo() . "','" . $hotel->getLocation() . "','" . $hotel->getImageLinks() . "','" . $hotel->contactsToString() . "','" . $hotel->ammenityToString() . "','" . $hotel->getStartingPrice() . "','" . $hotel->getEndingPrice() . "');";
+
+        $sql = "INSERT INTO hotel('Name', 'Info', 'Location', 'Images', 'Contacts', 'Amenities', 'StartPrice', 'EndPrice') VALUES ('" . $hotel->getName() . "', '" . $hotel->getInfo() . "', '" . $hotel->getLocation() . "', '" . $hotel->getImageLinks() . "', '" . $hotel->contactsToString() . "', '" . $hotel->ammenityToString() . "', '" . $hotel->getStartingPrice() . "', '" . $hotel->getEndingPrice() . "');";
         $conn->exec($sql);
         header("Location: dashboard.php");
     } catch (PDOException $exception) {
@@ -235,14 +240,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <li class="list-group-item">
                                     Free WiFi
                                     <div class="material-switch pull-right">
-                                        <input id="freeWifi" name="freeWifi" type="checkbox"/>
+                                        <input type="checkbox" id="freeWifi" name="freeWifi"/>
                                         <label for="freeWifi" class="label-info"></label>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     Free Parking
                                     <div class="material-switch pull-right">
-                                        <input id="freeParking" name="freeParking" type="checkbox"/>
+                                        <input type="checkbox" id="freeParking" name="freeParking"/>
                                         <label for="freeParking" class="label-info"></label>
                                     </div>
                                 </li>

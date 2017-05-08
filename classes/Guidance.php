@@ -103,7 +103,7 @@ class Guidance
 
         $string = "";
         foreach ($this->contacts as $contact)
-            $string .= $contact . "■";
+            $string .= $contact::toString() . "■";
         return substr($string, 0, count($string) - 1);
     }
 
@@ -216,7 +216,7 @@ class Guidance
         return $this->contacts;
     }
 
-    public function setContacts(Contact $contacts)
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
     }
