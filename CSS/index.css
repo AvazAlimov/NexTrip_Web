@@ -1,0 +1,37 @@
+@font-face {
+    font-family: HelveticaNeueTPro-Roman;
+    src: url("../src/fonts/HelveticaNeueLTPro-Roman.otf");
+}
+
+@font-face {
+    font-family: HelveticaNeueLTPro-Th;
+    src: url("../src/fonts/HelveticaNeueLTPro-Th.otf");
+}
+
+body {
+    background-color: #222;
+    text-align: center;
+}
+
+#text {
+    cursor: pointer;
+    opacity: 0;
+    font-family: HelveticaNeueLTPro-Th, monospace;
+    text-align: center;
+    color: #fff;
+    font-size: 96px;
+}
+
+#logo {
+    margin-top: 3%;
+    opacity: 0.0;
+    position: relative;
+    left: -30px;
+    width: 40%;
+}
+
+div.textContainer {
+    top: 35%;
+    right: 20%;
+    position: fixed;
+}
