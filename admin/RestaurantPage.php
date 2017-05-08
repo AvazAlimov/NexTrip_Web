@@ -23,6 +23,7 @@ function normalizeString($string)
     }
     return $returnString;
 }
+
 require_once('../classes/Hotel.php');
 require_once('../classes/Contact.php');
 $servername = "localhost";
@@ -39,6 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $info = $_POST['info'];
         $location = $_POST['location'];
         $seats = $_POST['seats'];
+        $cafe = isset($_POST['cafe']) && $_POST['cafe'] ? "1" : "0";
+        $cuisine = isset($_POST['cuisine']) && $_POST['cuisine'] ? "1" : "0";
+        $sit_down = isset($_POST['sit_down']) && $_POST['sit_down'] ? "1" : "0";
+        $fast_food = isset($_POST['fast_food']) && $_POST['fast_food'] ? "1" : "0";
         $freeWifi = isset($_POST['freeWifi']) && $_POST['freeWifi'] ? "1" : "0";
         $freeParking = isset($_POST['freeParking']) && $_POST['freeParking'] ? "1" : "0";
         $freeYard = isset($_POST['freeYard']) && $_POST['freeYard'] ? "1" : "0";
@@ -50,6 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $amenities = "";
         $contacts = "";
         $images = "";
+        $type = "";
+
+        if ($cafe)
+            $type .= "Cafe◎";
+        if ($cuisine)
+            $type .= "Cuisine◎";
+        if ($sit_down)
+            $type .= "Sit Down◎";
+        if ($fast_food)
+            $type .= "Fast Food◎";
 
         if ($freeWifi)
             $amenities .= "Free WiFi◎";
@@ -87,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $contacts = normalizeString($contacts);
         $images = normalizeString($images);
 
-        $sql = "INSERT INTO `restaurant`(`Name`, `Info`, `Location`, `Images`, `Contacts`, `Amenities`, `Seats`) VALUES ('$name', '$info', '$location', '$images', '$contacts', '$amenities', '$seats');";
+        $sql = "INSERT INTO `restaurant`(`Name`, `Info`, `Location`, `Images`, `Contacts`, `Amenities`, `Seats`, `Type`) VALUES ('$name', '$info', '$location', '$images', '$contacts', '$amenities', '$seats', '$type');";
         $conn->exec($sql);
         header("Location: dashboard.php");
     } catch (PDOException $exception) {
