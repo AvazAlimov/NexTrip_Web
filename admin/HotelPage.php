@@ -33,23 +33,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo("Hi");
 
-        $name = $_POST["name"];
-        $info = $_POST["information"];
-        $location = $_POST["location"];
-        $startPrice = $_POST["startPrice"];
-        $endPrice = $_POST["endPrice"];
-        $images = array();
+        $name = $_POST['name'];
+        $info = $_POST['information'];
+        $location = $_POST['location'];
+        $startPrice = $_POST['startPrice'];
+        $endPrice = $_POST['endPrice'];
+        $freeWifi = $_POST['freeWifi'];
+        $freeParking = $_POST['freeParking'];
+        $freeYard = $_POST['freeYard'];
+        $facebook = $_POST['facebook'];
+        $site = $_POST['site'];
+        $mail = $_POST['mail'];
+        $telegram = $_POST['telegram'];
+        $phone = $_POST['phone'];
         $amenities = array();
-        $freeWifi = $_POST["freeWifi"];
-        $freeParking = $_POST["freeParking"];
-        $freeYard = $_POST["freeYard"];
         $contacts = array();
-        $facebook = $_POST["facebook"];
-        $site = $_POST["site"];
-        $mail = $_POST["mail"];
-        $telegram = $_POST["telegram"];
-        $phone = $_POST["phone"];
-
+        $images = array();
 
         if (isset($freeWifi))
             array_push($amenities, $freeWifi);
