@@ -45,11 +45,12 @@
             content: '';
             height: 16px;
             margin-top: -8px;
-            position:absolute;
+            position: absolute;
             opacity: 0.3;
             transition: all 0.4s ease-in-out;
             width: 40px;
         }
+
         .material-switch > label::after {
             background: rgb(255, 255, 255);
             border-radius: 16px;
@@ -63,20 +64,35 @@
             transition: all 0.3s ease-in-out;
             width: 24px;
         }
+
         .material-switch > input[type="checkbox"]:checked + label::before {
             background: inherit;
             opacity: 0.5;
         }
+
         .material-switch > input[type="checkbox"]:checked + label::after {
             background: inherit;
             left: 20px;
         }
+
+        hr {
+            -moz-border-bottom-colors: none;
+            -moz-border-image: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-style: solid none;
+            border-width: 2px 0;
+            margin: 18px 0;
+        }
     </style>
 </head>
 <body>
-<form method="post">
+<form method="post" style="background-color: #eee;">
     <div class="container vertical-center">
         <div class="col-sm-6">
+            <h1>HOTEL</h1>
+            <hr>
             <h2>General Information</h2>
             <div class="row">
                 <div class="input-group">
@@ -96,19 +112,6 @@
                     <textarea class="form-control" rows="5" id="comment" title="information"></textarea>
                 </div>
             </div>
-            <h2>Price</h2>
-            <div class="row">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-usd custom-icon"></i></span>
-                        <input id="startPrice" type="text" class="form-control" name="startPrice" placeholder="start price">
-                    </div>
-            </div>
-            <div class="row">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-usd custom-icon"></i></span>
-                    <input id="endPrice" type="text" class="form-control" name="endPrice" placeholder="end price">
-                </div>
-            </div>
             <h2>Contacts</h2>
             <div class="row">
                 <div class="input-group">
@@ -118,7 +121,8 @@
             </div>
             <div class="row">
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-google custom-icon" style="font-size: 16px;"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-google custom-icon"
+                                                       style="font-size: 16px;"></i></span>
                     <input id="mail" type="text" class="form-control" name="mail" placeholder="mail address">
                 </div>
             </div>
@@ -143,6 +147,19 @@
         </div>
         <div class="col-sm-1"></div>
         <div class="col-sm-5">
+            <h2>Price</h2>
+            <div class="row">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-usd custom-icon"></i></span>
+                    <input id="startPrice" type="text" class="form-control" name="startPrice" placeholder="start price">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-usd custom-icon"></i></span>
+                    <input id="endPrice" type="text" class="form-control" name="endPrice" placeholder="end price">
+                </div>
+            </div>
             <h2>Amenities</h2>
             <div class="row">
                 <div class="row">
@@ -205,6 +222,10 @@
                     <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip custom-icon"></i></span>
                     <input id="link5" type="text" class="form-control" name="link5" placeholder="image link 5">
                 </div>
+            </div>
+            <div class="row">
+                <button type="submit" name="submit" class="btn btn-primary btn-success">Submit</button>
+                <button type="button" class="btn btn-primary btn-danger">Cancel</button>
             </div>
         </div>
     </div>
