@@ -114,10 +114,6 @@
             color: #d58512;
         }
 
-        .slideanim {
-            visibility: hidden;
-        }
-
         @keyframes slide {
             0% {
                 opacity: 0;
@@ -364,12 +360,14 @@ $conn = null;
     <h2>Manage Entertainment</h2><br>
     <div class="row text-center">
         <div class="col-sm-4">
-            <div class="thumbnail">
-                <div style="height: 200px; background-color: #4CAF50;">
-                    <span class="glyphicon glyphicon-plus logo-small"></span>
+            <a href="EntertainmentPage.php">
+                <div class="thumbnail">
+                    <div style="height: 200px; background-color: #4CAF50;">
+                        <span class="glyphicon glyphicon-plus logo-small"></span>
+                    </div>
+                    <h2><strong>ADD</strong></h2>
                 </div>
-                <h2><strong>ADD</strong></h2>
-            </div>
+            </a>
         </div>
         <div class="col-sm-4">
             <div class="thumbnail">
@@ -393,12 +391,14 @@ $conn = null;
     <h2>Manage Things To Do</h2><br>
     <div class="row text-center">
         <div class="col-sm-4">
-            <div class="thumbnail">
-                <div style="height: 200px; background-color: #4CAF50;">
-                    <span class="glyphicon glyphicon-plus logo-small"></span>
+            <a href="ThingsToDoPage.php">
+                <div class="thumbnail">
+                    <div style="height: 200px; background-color: #4CAF50;">
+                        <span class="glyphicon glyphicon-plus logo-small"></span>
+                    </div>
+                    <h2><strong>ADD</strong></h2>
                 </div>
-                <h2><strong>ADD</strong></h2>
-            </div>
+            </a>
         </div>
         <div class="col-sm-4">
             <div class="thumbnail">
