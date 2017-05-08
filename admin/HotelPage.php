@@ -89,6 +89,19 @@
 </head>
 <body>
 <?php
+
+function normalizeString($string)
+{
+    $returnString = "";
+    for ($i = 0; $i < strlen($string); $i++) {
+        if ($string[$i] == '\'')
+            $returnString .= '\\' . $string[$i];
+        else
+            $returnString .= $string[$i];
+    }
+    return $returnString;
+}
+
 require_once('../classes/Hotel.php');
 require_once('../classes/Contact.php');
 $servername = "localhost";
@@ -146,8 +159,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $images .= $_POST['link4'] . '□';
         if (!empty($_POST['link5']))
             $images .= $_POST['link5'] . '□';
+
+        $name = normalizeString($name);
+        $info = normalizeString($info);
+        $location = normalizeString($location);
+        $amenities = normalizeString($amenities);
+        $contacts = normalizeString($contacts);
+        $images = normalizeString($images);
+
         $sql = "INSERT INTO `hotel`(`Name`, `Info`, `Location`, `Images`, `Contacts`, `Amenities`, `StartPrice`, `EndPrice`) VALUES ('$name', '$info', '$location', '$images', '$contacts', '$amenities', '$startPrice', '$endPrice');";
-        echo $sql;
         $conn->exec($sql);
         header("Location: dashboard.php");
     } catch (PDOException $exception) {
