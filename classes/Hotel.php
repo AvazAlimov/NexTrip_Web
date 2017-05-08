@@ -1,5 +1,5 @@
 <?php
-
+require "Guidance.php";
 class Hotel extends Guidance
 {
     private $startingPrice;
