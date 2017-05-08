@@ -106,52 +106,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location = $_POST['location'];
         $startPrice = $_POST['startPrice'];
         $endPrice = $_POST['endPrice'];
-        $freeWifi = isset($_POST['freeWifi']) && $_POST['freeWifi']  ? "1" : "0";
-        $freeParking = isset($_POST['freeParking']) && $_POST['freeParking']  ? "1" : "0";
-        $freeYard = isset($_POST['freeYard']) && $_POST['freeYard']  ? "1" : "0";
+        $freeWifi = isset($_POST['freeWifi']) && $_POST['freeWifi'] ? "1" : "0";
+        $freeParking = isset($_POST['freeParking']) && $_POST['freeParking'] ? "1" : "0";
+        $freeYard = isset($_POST['freeYard']) && $_POST['freeYard'] ? "1" : "0";
         $facebook = $_POST['facebook'];
         $site = $_POST['site'];
         $mail = $_POST['mail'];
         $telegram = $_POST['telegram'];
         $phone = $_POST['phone'];
-        $amenities = array();
-        $contacts = array();
-        $images = array();
+        $amenities = "";
+        $contacts = "";
+        $images = "";
 
-        if (isset($freeWifi))
-            array_push($amenities, "Free WiFi");
-        if (isset($freeParking))
-            array_push($amenities, "Free Parking");
-        if (isset($freeYard))
-            array_push($amenities, "Free Children Yard");
+        if ($freeWifi)
+            $amenities .= "Free WiFi◎";
+        if ($freeParking)
+            $amenities .= "Free Parking◎";
+        if ($freeYard)
+            $amenities .= "Free Children Yard◎";
 
         if (!empty($facebook))
-            array_push($contacts, new Contact($facebook,"Facebook"));
+            $contacts .= "Facebook□" . $facebook . "◎";
         if (!empty($mail))
-            array_push($contacts, new Contact($mail,"Mail"));
+            $contacts .= "Mail□" . $mail . "◎";
         if (!empty($site))
-            array_push($contacts, new Contact($site, "Site"));
+            $contacts .= "Site□" . $site . "◎";
         if (!empty($telegram))
-            array_push($contacts, new Contact($telegram, "Telegram"));
+            $contacts .= "Telegram□" . $telegram . "◎";
         if (!empty($phone))
-            array_push($contacts, new Contact($phone, "PhoneNumber"));
+            $contacts .= "PhoneNumber□" . $phone . "◎";
 
-
-
-        $hotel = new Hotel();
-        $hotel->setName($name);
-        $hotel->setInfo($info);
-        $hotel->setLocation($location);
-        $hotel->setStartingPrice($startPrice);
-        $hotel->setEndingPrice($endPrice);
-        $hotel->setImages($images);
-        $hotel->setAmenities($amenities);
-        $hotel->setContacts($contacts);
-
-        echo $hotel->toString();
-
-
-        $sql = "INSERT INTO hotel('Name', 'Info', 'Location', 'Images', 'Contacts', 'Amenities', 'StartPrice', 'EndPrice') VALUES ('" . $hotel->getName() . "', '" . $hotel->getInfo() . "', '" . $hotel->getLocation() . "', '" . $hotel->getImageLinks() . "', '" . $hotel->contactsToString() . "', '" . $hotel->ammenityToString() . "', '" . $hotel->getStartingPrice() . "', '" . $hotel->getEndingPrice() . "');";
+        if (!empty($_POST['link1']))
+            $images .= $_POST['link1'] . '□';
+        if (!empty($_POST['link2']))
+            $images .= $_POST['link2'] . '□';
+        if (!empty($_POST['link3']))
+            $images .= $_POST['link3'] . '□';
+        if (!empty($_POST['link4']))
+            $images .= $_POST['link4'] . '□';
+        if (!empty($_POST['link5']))
+            $images .= $_POST['link5'] . '□';
+        $sql = "INSERT INTO `hotel`(`Name`, `Info`, `Location`, `Images`, `Contacts`, `Amenities`, `StartPrice`, `EndPrice`) VALUES ('$name', '$info', '$location', '$images', '$contacts', '$amenities', '$startPrice', '$endPrice');";
+        echo $sql;
         $conn->exec($sql);
         header("Location: dashboard.php");
     } catch (PDOException $exception) {

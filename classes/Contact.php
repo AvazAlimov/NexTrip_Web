@@ -3,8 +3,8 @@
 class Contact
 {
     public $Type = array("Facebook", "Site", "PhoneNumber", "Mail", "Telegram", "Other");
-    private $type;
-    private $source;
+    private $type = "";
+    private $source = "";
 
     public function __construct($source, $type)
     {
