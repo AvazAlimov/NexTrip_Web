@@ -5,7 +5,7 @@ $pass = "inhamoodle";
 $database = "nextripdb";
 $conn = null;
 
-if (isset($_REQUEST['submit'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $conn = new PDO("mysql:host=$serverName;dbname=$database", $hostName, $pass);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
