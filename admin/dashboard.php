@@ -195,7 +195,7 @@
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <?php
-$servername = "localhost";
+$serverName = "localhost";
 $name = "root";
 $pass = "inhamoodle";
 $database = "nextripdb";
@@ -212,7 +212,7 @@ $conn = null;
                     <h2><strong>HOTELS</strong></h2>
                     <h3>
                         <?php
-                        $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                        $conn = new PDO("mysql:host=$serverName;dbname=$database", $name, $pass);
                         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         $sql = "SELECT * FROM hotel;";
                         $statement = $conn->prepare($sql);
@@ -232,7 +232,7 @@ $conn = null;
                 <h2><strong>RESTAURANTS</strong></h2>
                 <h3>
                     <?php
-                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn = new PDO("mysql:host=$serverName;dbname=$database", $name, $pass);
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql = "SELECT * FROM restaurant;";
                     $statement = $conn->prepare($sql);
@@ -251,7 +251,7 @@ $conn = null;
                 <h2><strong>ENTERTAINMENTS</strong></h2>
                 <h3>
                     <?php
-                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn = new PDO("mysql:host=$serverName;dbname=$database", $name, $pass);
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql = "SELECT * FROM entertaining;";
                     $statement = $conn->prepare($sql);
@@ -270,7 +270,7 @@ $conn = null;
                 <h2><strong>THINGS TO DO</strong></h2>
                 <h3>
                     <?php
-                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                    $conn = new PDO("mysql:host=$serverName;dbname=$database", $name, $pass);
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $sql = "SELECT * FROM thingstodo;";
                     $statement = $conn->prepare($sql);
