@@ -168,23 +168,25 @@ $conn = null;
 <div class="jumbotron text-center bg-grey">
     <div class="container-fluid text-center">
         <div class="col-sm-3">
-            <div class="thumbnail">
-                <div style="height: 200px; background-color: #999;">
-                    <span class="glyphicon glyphicon-home logo-small"></span>
+            <a href="Hotels.php">
+                <div class="thumbnail">
+                    <div style="height: 200px; background-color: #999;">
+                        <span class="glyphicon glyphicon-home logo-small"></span>
+                    </div>
+                    <h2><strong>HOTELS</strong></h2>
+                    <h3>
+                        <?php
+                        $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        $sql = "SELECT * FROM hotel;";
+                        $statement = $conn->prepare($sql);
+                        $statement->execute();
+                        $result = $statement->rowCount();
+                        print $result;
+                        ?>
+                    </h3>
                 </div>
-                <h2><strong>HOTELS</strong></h2>
-                <h3>
-                    <?php
-                    $conn = new PDO("mysql:host=$servername;dbname=$database", $name, $pass);
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $sql = "SELECT * FROM hotel;";
-                    $statement = $conn->prepare($sql);
-                    $statement->execute();
-                    $result = $statement->rowCount();
-                    print $result;
-                    ?>
-                </h3>
-            </div>
+            </a>
         </div>
         <div class="col-sm-3">
             <div class="thumbnail">
