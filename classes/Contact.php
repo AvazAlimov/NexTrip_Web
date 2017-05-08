@@ -6,12 +6,7 @@ class Contact
     private $type;
     private $source;
 
-    public function __construct()
-    {
-
-    }
-
-    public function withSource($source, $type)
+    public function __construct($source, $type)
     {
         $this->source = $source;
         $this->type = $type;

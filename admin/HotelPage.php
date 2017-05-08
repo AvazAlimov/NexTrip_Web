@@ -125,15 +125,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             array_push($amenities, $freeYard);
 
         if (!empty($facebook))
-            array_push($contacts, $facebook);
+            array_push($contacts, new Contact($facebook,"Facebook"));
         if (!empty($mail))
-            array_push($contacts, $mail);
+            array_push($contacts, new Contact($mail,"Mail"));
         if (!empty($site))
-            array_push($contacts, $site);
+            array_push($contacts, new Contact($site, "Site"));
         if (!empty($telegram))
-            array_push($contacts, $telegram);
+            array_push($contacts, new Contact($telegram, "Telegram"));
         if (!empty($phone))
-            array_push($contacts, $phone);
+            array_push($contacts, new Contact($phone, "PhoneNumber"));
 
         $hotel = new Hotel();
         $hotel->setName($name);
