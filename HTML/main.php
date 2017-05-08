@@ -418,30 +418,21 @@
     <h2 class="text-center">DEVELOPERS</h2>
     <br>
     <div class="row slideanim">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <img src="../src/Images/Avaz.jpg" class="img-circle" alt="Cinque Terre" width="140" height="160">
             <h4>AVAZ ALIMOV</h4>
             <p>Back-End and Front-End Developer </p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <img src="../src/Images/profile2.jpg" class="img-circle" alt="Cinque Terre" width="140" height="160">
             <h4>NASIBA LUTFULLAEVA</h4>
             <p>Front-End Designer</p>
         </div>
-    </div>
-    <br><br>
-    <div class="row slideanim">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <span class="glyphicon glyphicon-user logo-small"></span>
             <h4>JAKHON</h4>
             <p>Presentation</p>
         </div>
-        <div class="col-sm-6">
-            <span class="glyphicon glyphicon-user logo-small"></span>
-            <h4>AKMAL</h4>
-            <p>-------------</p>
-        </div>
-
     </div>
 </div>
 
