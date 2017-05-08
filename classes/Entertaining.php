@@ -1,5 +1,5 @@
 <?php
-
+require "Guidance.php";
 class Entertaining extends Guidance
 {
     private $price;
