@@ -11,6 +11,90 @@
     <link rel="stylesheet" href="../CSS/RestaurantPage.css"/>
 </head>
 <body>
+<?php
+function normalizeString($string)
+{
+    $returnString = "";
+    for ($i = 0; $i < strlen($string); $i++) {
+        if ($string[$i] == '\'')
+            $returnString .= '\\' . $string[$i];
+        else
+            $returnString .= $string[$i];
+    }
+    return $returnString;
+}
+require_once('../classes/Hotel.php');
+require_once('../classes/Contact.php');
+$servername = "localhost";
+$name = "root";
+$pass = "inhamoodle";
+$database = "nextripdb";
+$conn = null;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $conn = new PDO("mysql:host=$servername; dbname=$database", $name, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $name = $_POST['name'];
+        $info = $_POST['info'];
+        $location = $_POST['location'];
+        $seats = $_POST['seats'];
+        $freeWifi = isset($_POST['freeWifi']) && $_POST['freeWifi'] ? "1" : "0";
+        $freeParking = isset($_POST['freeParking']) && $_POST['freeParking'] ? "1" : "0";
+        $freeYard = isset($_POST['freeYard']) && $_POST['freeYard'] ? "1" : "0";
+        $facebook = $_POST['facebook'];
+        $site = $_POST['site'];
+        $mail = $_POST['mail'];
+        $telegram = $_POST['telegram'];
+        $phone = $_POST['phone'];
+        $amenities = "";
+        $contacts = "";
+        $images = "";
+
+        if ($freeWifi)
+            $amenities .= "Free WiFi◎";
+        if ($freeParking)
+            $amenities .= "Free Parking◎";
+        if ($freeYard)
+            $amenities .= "Free Children Yard◎";
+
+        if (!empty($facebook))
+            $contacts .= "Facebook□" . $facebook . "◎";
+        if (!empty($mail))
+            $contacts .= "Mail□" . $mail . "◎";
+        if (!empty($site))
+            $contacts .= "Site□" . $site . "◎";
+        if (!empty($telegram))
+            $contacts .= "Telegram□" . $telegram . "◎";
+        if (!empty($phone))
+            $contacts .= "PhoneNumber□" . $phone . "◎";
+
+        if (!empty($_POST['link1']))
+            $images .= $_POST['link1'] . '□';
+        if (!empty($_POST['link2']))
+            $images .= $_POST['link2'] . '□';
+        if (!empty($_POST['link3']))
+            $images .= $_POST['link3'] . '□';
+        if (!empty($_POST['link4']))
+            $images .= $_POST['link4'] . '□';
+        if (!empty($_POST['link5']))
+            $images .= $_POST['link5'] . '□';
+
+        $name = normalizeString($name);
+        $info = normalizeString($info);
+        $location = normalizeString($location);
+        $amenities = normalizeString($amenities);
+        $contacts = normalizeString($contacts);
+        $images = normalizeString($images);
+
+        $sql = "INSERT INTO `restaurant`(`Name`, `Info`, `Location`, `Images`, `Contacts`, `Amenities`, `Seats`) VALUES ('$name', '$info', '$location', '$images', '$contacts', '$amenities', '$seats');";
+        $conn->exec($sql);
+        header("Location: dashboard.php");
+    } catch (PDOException $exception) {
+        echo $exception->getMessage();
+    }
+}
+?>
 <form method="post" style="background-color: #eee;">
     <div class="container">
         <div class="col-sm-6">
